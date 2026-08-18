@@ -86,53 +86,7 @@
 
       <script>
         const sound = document.getElementById("sound");
-        const status = document.getElementById("status");
-        const keyboard = document.getElementById("keyboard");
-
-        const keys = [
-          ..."1234567890",
-          ..."QWERTYUIOP",
-          ..."ASDFGHJKL",
-          ..."ZXCVBNM",
-        ];
-
-        keys.forEach((key) => {
-          const div = document.createElement("div");
-          div.className = "key";
-          div.textContent = key;
-          div.dataset.key = key.toLowerCase();
-          keyboard.appendChild(div);
-        });
-
-        document.addEventListener("keydown", (event) => {
-          const pressedKey = event.key.toLowerCase();
-
-          const keyElement = document.querySelector(
-            `.key[data-key="${pressedKey}"]`,
-          );
-
-          if (keyElement) {
-            keyElement.classList.add("active");
-
-            setTimeout(() => {
-              keyElement.classList.remove("active");
-            }, 100);
-          }
-
-          // Same sound on every key press
-          sound.currentTime = 0;
-
-          sound.play().catch(() => {
-            console.log("Browser blocked audio playback.");
-          });
-
-          status.textContent = `🎵 ${event.key} pressed!`;
-        });
-
-        document.addEventListener("keyup", () => {
-          status.textContent = "Press any key...";
-        });
-      </script>
+        const s
     </body>
   </html>
 </html>
